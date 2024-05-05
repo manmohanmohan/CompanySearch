@@ -1,13 +1,8 @@
 package com.company.search.dtos;
 
-import com.company.search.entities.Address;
-import com.company.search.entities.Company;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter

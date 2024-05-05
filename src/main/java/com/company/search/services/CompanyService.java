@@ -6,6 +6,7 @@ import com.company.search.dtos.CompanySearchResponse;
 import com.company.search.dtos.OfficerDTO;
 import com.company.search.entities.Address;
 import com.company.search.entities.Company;
+import com.company.search.entities.Officer;
 import com.company.search.exceptions.CompanyNameNotFoundException;
 import com.company.search.exceptions.CompanyNotFoundException;
 import com.company.search.exceptions.CompanyNumberOrNameRequiredException;
@@ -17,6 +18,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -44,6 +46,7 @@ public class CompanyService {
 
             // Save Officers
             if (!CollectionUtils.isEmpty(company.getOfficers())) {
+                company.getOfficers().forEach(officer -> officer.setCompany(company));
                 officerService.saveOfficers(company.getOfficers());
                 company.setOfficers(company.getOfficers());
             }

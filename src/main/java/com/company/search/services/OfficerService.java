@@ -1,5 +1,6 @@
 package com.company.search.services;
 
+import com.company.search.dtos.CompanyDTO;
 import com.company.search.dtos.OfficerDTO;
 import com.company.search.entities.Officer;
 import com.company.search.mappers.OfficerMapper;

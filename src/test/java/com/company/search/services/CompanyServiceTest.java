@@ -3,6 +3,7 @@ package com.company.search.services;
 import com.company.search.dtos.CompanyDTO;
 import com.company.search.dtos.CompanySearchRequest;
 import com.company.search.dtos.CompanySearchResponse;
+import com.company.search.dtos.OfficerDTO;
 import com.company.search.entities.Company;
 import com.company.search.exceptions.CompanyNameNotFoundException;
 import com.company.search.exceptions.CompanyNumberOrNameRequiredException;
@@ -35,6 +36,9 @@ public class CompanyServiceTest {
 
     @Mock
     private CompanyRepository companyRepository;
+
+    @Mock
+    private OfficerService officerService;
 
     @InjectMocks
     private CompanyService companyService;
@@ -120,6 +124,7 @@ public class CompanyServiceTest {
         // Mock behavior
         when( companyRepository.findByCompanyNumberAndCompanyStatus(companyNumber,"Active")).thenReturn(Optional.of(company));
         when(companyMapper.companyToCompanyDTO(any())).thenReturn(expectedCompanyDTO);
+        when(officerService.getOfficers(companyNumber)).thenReturn(List.of(new OfficerDTO()));
       //  when(companyService.findByCompanyNumber(companyNumber)).thenReturn(expectedCompanyDTO);
 
         // Test
