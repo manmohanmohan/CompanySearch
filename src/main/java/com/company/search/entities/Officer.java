@@ -16,9 +16,8 @@ public class Officer {
     private String name;
     private String officerRole;
     private LocalDate appointedOn;
-    // Other fields and getters/setters
     @ManyToOne
-    @JoinColumn(name = "company_number", referencedColumnName = "companyNumber")
+    @JoinColumn(name = "CompanyNumber", referencedColumnName = "companyNumber")
     private Company company;
 
     @OneToOne
